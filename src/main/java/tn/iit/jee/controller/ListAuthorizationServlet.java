@@ -13,25 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import tn.iit.jee.dao.HibernateUtil;
 import tn.iit.jee.model.Authorization;
 import tn.iit.jee.model.Teacher;
 
 /**
- * Servlet implementation class WelcomeServlet
+ * Servlet implementation class ListAuthorizationServlet
  */
-@WebServlet("")
-public class WelcomeServlet extends HttpServlet {
+@WebServlet("/ListAuthorizationServlet")
+public class ListAuthorizationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WelcomeServlet() {
+    public ListAuthorizationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,30 +41,17 @@ public class WelcomeServlet extends HttpServlet {
 		ServletContext application = getServletContext();
 		RequestDispatcher rd = null;
 
-
         
 		Session session = HibernateUtil.getSessionFactory().openSession();
-		Criteria crit = session.createCriteria(Teacher.class);
-		
-		List<Teacher> lstTeachers = crit.list();
-		int count = lstTeachers.size();
-		crit = session.createCriteria(Authorization.class);
+		Criteria crit = session.createCriteria(Authorization.class);
 		List<Authorization> lstAuthorizations = crit.list();
-		request.setAttribute("countTeachers", count);
-
-		request.setAttribute("countAuthorization", lstAuthorizations.size());
-		rd = application.getRequestDispatcher("/index.jsp");
+		
+		request.setAttribute("lstAuthorizations", lstAuthorizations);
+		rd = application.getRequestDispatcher("/EditAuthorization.jsp");
 		rd.forward(request, response);
+	
 	}
-	
-	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

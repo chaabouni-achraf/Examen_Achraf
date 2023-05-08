@@ -9,18 +9,18 @@
 		<property name="hibernate.connection.url">jdbc:mysql://localhost/Exam_AchrafJ2ee</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
-		<!-- JDBC connection pool (use the built-in) -->
-		<property name="connection.pool_size">1</property>
+
 		<!-- SQL dialect -->
 		<property name="dialect">
 		org.hibernate.dialect.MySQLDialect
 		</property>
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
-		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">validate</property>
+		<!-- Drop and re-create the database schema on startup   validate -->
+		<property name="hbm2ddl.auto">create</property>
 
 		<!-- mapping file, we can use Bean annotations too --> 
 		<mapping resource="Teacher.hbm.xml" />
+		<mapping resource="Authorization.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

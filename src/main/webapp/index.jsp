@@ -27,7 +27,7 @@
               <div class="inner">
                 <h3>${countTeachers}</h3>
 
-                <p>Enseignant(e)</p>
+                <p>Enseignant(e) </p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -40,7 +40,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53</h3>
+                <h3>${countAuthorization}</h3>
 
                 <p>Autorisation</p>
               </div>

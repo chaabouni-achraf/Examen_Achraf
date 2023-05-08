@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"https://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="tn.iit.jee.model">
+	<class name="Authorization" table="Authorization">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="increment" />
+        </id>
+        <property name="institution" type="java.lang.String">
+            <column name="institution" />
+        </property>
+        <property name="startDate" type="java.util.Date">
+            <column name="startDate" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="endDate" />
+        </property>
+        <property name="duration" type="long">
+            <column name="duration" />
+        </property>
+        
+        <many-to-one name = "teacher"  column = "id_teacher" class="Teacher" not-null="true"  cascade="all"/>
+        
+    </class>
+</hibernate-mapping>

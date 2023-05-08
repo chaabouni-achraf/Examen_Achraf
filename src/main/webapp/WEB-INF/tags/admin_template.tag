@@ -1,5 +1,6 @@
 <%@ tag language="java"  pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ attribute name="content" fragment="true" %>
+<%@attribute name="addHeader" fragment="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/admin/dist/css/adminlte.min.css">
   
-  
+  <jsp:invoke fragment="addHeader"></jsp:invoke>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -106,13 +107,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="layout/top-nav-sidebar.html" class="nav-link">
+                <a href="${pageContext.request.contextPath}/AuthorizationServlet" class="nav-link">
                   <i class="nav-icon far fa-circle text-info"></i>
                   <p>Demande</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="layout/boxed.html" class="nav-link">
+                <a href="${pageContext.request.contextPath}/ListAuthorizationServlet" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Historique</p>
                 </a>
